@@ -4,7 +4,24 @@
             <h1>Post list</h1>
             <ul>
                 <li v-for="(post, i) in visiblePosts" :key="i">
-                    {{ post.title }}
+                    <div class="title">
+                        <strong>Title: </strong>{{ post.title }}
+                    </div>
+                    <div v-if="post.category != null" class="category">
+                        <strong>Category: </strong>{{ post.category.name }}
+                    </div>
+                    <div v-if="post.tags.length > 0" class="tags">
+                        <strong>Tags: </strong>
+                        <ul>
+                            <li
+                                v-for="(tag, i) in post.tags"
+                                :key="i"
+                                class="tag"
+                            >
+                                {{ tag.name }}
+                            </li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -33,9 +50,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 main {
-    margin-top: 70px;
+    margin: 70px 0;
 
     .container {
         width: 80%;
@@ -48,12 +64,19 @@ main {
 
         ul {
             padding-left: 20px;
-            
+
             li {
-                margin: 5px 0;
+                margin: 15px 0;
+
+                > div {
+                    margin: 4px 0;
+
+                    .tag {
+                        margin: 6px 0;
+                    }
+                }
             }
         }
     }
 }
-
 </style>

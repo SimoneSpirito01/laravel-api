@@ -12,6 +12,11 @@ class PostController extends Controller
     {
         $posts = Post::where('published', 1)->get();
 
+        foreach ($posts as $post) {
+            $post->category = $post->category;
+            $post->tags = $post->tags;
+        }
+
         return response()->json($posts);
     }
 }
