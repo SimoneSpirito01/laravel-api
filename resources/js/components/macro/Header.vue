@@ -1,15 +1,11 @@
 <template>
-    <header>
-        <h1>Ciao</h1>
-    </header>
+    <header></header>
 </template>
 
 <script>
 export default {
-    name: 'Header'
-}
+    name: "Header",
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
